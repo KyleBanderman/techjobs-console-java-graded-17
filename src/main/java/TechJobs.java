@@ -126,9 +126,10 @@ public class TechJobs {
                 System.out.println(String.format("%s: %s", data.getKey(), data.getValue()));
             }
             System.out.println("*****\n");
-            if (!job.containsKey("name")) {
-                System.out.println("No Results");
-            }
+
+        }
+        if (someJobs.isEmpty()) {
+            System.out.println("No Results");
         }
 
     }
