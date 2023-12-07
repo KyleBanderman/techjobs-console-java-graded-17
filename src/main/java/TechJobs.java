@@ -11,7 +11,6 @@ public class TechJobs {
     static Scanner in = new Scanner(System.in);
 
     public static void main (String[] args) {
-
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
         columnChoices.put("core competency", "Skill");
@@ -62,9 +61,9 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchTerm));
+                    printJobs(JobData.findByValue(searchTerm.toLowerCase()));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm.toLowerCase()));
                 }
             }
         }

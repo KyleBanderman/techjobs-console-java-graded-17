@@ -6,10 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -76,7 +73,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value)) {
                 jobs.add(row);
             }
         }
@@ -95,8 +92,16 @@ public class JobData {
         loadData();
         //start of my code
         ArrayList<HashMap<String, String>> someJobs = new ArrayList<>();
-        for (HashMap<String, String> data : allJobs) {
-            System.out.println(data);
+        for (HashMap<String, String> job : allJobs) {
+            for (Map.Entry<String, String> data : job.entrySet()) {
+                if (data.getValue().toLowerCase().contains(value)) {
+                    System.out.println("*****");
+                    for (Map.Entry<String, String> info : job.entrySet()) {
+                        System.out.println(String.format("%s: %s", info.getKey(), info.getValue()));
+                    }
+                    System.out.println("*****\n");
+                }
+            }
         }
         // TODO - implement this method
         return null;
