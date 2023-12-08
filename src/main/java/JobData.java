@@ -87,24 +87,22 @@ public class JobData {
      * @param value The search term to look for
      * @return      List of all jobs with at least one field containing the value
      */
+    //TODO: Go over this in the demo
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
         // load data, if not already loaded
         loadData();
         //start of my code
+        String input = value.toLowerCase();
         ArrayList<HashMap<String, String>> someJobs = new ArrayList<>();
         for (HashMap<String, String> job : allJobs) {
             for (Map.Entry<String, String> data : job.entrySet()) {
-                if (data.getValue().toLowerCase().contains(value)) {
-                    System.out.println("*****");
-                    for (Map.Entry<String, String> info : job.entrySet()) {
-                        System.out.println(String.format("%s: %s", info.getKey(), info.getValue()));
-                    }
-                    System.out.println("*****\n");
+                if (data.getValue().toLowerCase().contains(input)) {
+                    someJobs.add(job);
+                    break;
                 }
             }
         }
-        // TODO - implement this method
-        return null;
+        return someJobs;
     }
 
     /**

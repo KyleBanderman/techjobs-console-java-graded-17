@@ -117,6 +117,7 @@ public class TechJobs {
     }
 
     // Print a list of jobs
+    //TODO: go over this in the studio
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         for (HashMap<String, String> job : someJobs) {
